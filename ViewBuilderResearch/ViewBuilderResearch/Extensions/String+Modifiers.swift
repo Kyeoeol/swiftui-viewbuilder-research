@@ -25,3 +25,13 @@ extension String {
     }
     
 }
+
+
+// MARK: -
+
+extension String {
+    /// For upport Markdown syntax
+    func localized() -> AttributedString {
+        AttributedString(localized: LocalizationValue(self))
+    }
+}

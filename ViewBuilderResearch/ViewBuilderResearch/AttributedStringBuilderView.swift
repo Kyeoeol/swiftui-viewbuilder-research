@@ -40,8 +40,12 @@ struct AttributedStringBuilderView: View {
         }
     }
     let myText = MyText {
-        "Hello, "
+        "~**Hello,**~ "
+            .localized()
             .color(.red)
+        /// Use Markdown syntax to describe bold text.
+        /// When using Markdown syntax, setting inlinePresentationIntent directly will cause conflicts
+//            .bold()
         AttributedString("World!")
             .color(.green)
             .bold()
