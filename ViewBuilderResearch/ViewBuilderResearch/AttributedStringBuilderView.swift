@@ -14,6 +14,7 @@ struct AttributedStringBuilderView: View {
     var txt: AttributedString {
         AttributedString("Hello,")
         AttributedString("World!")
+        let _ = print("UPDATED.") /// Declaration statements will not affect the builder's translation.
     }
     // Simple example 2
     @AttributedStringBuilder

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AE22B7562A345F3700044CCF /* AttributedStringBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE22B7552A345F3700044CCF /* AttributedStringBuilderView.swift */; };
+		AE22B7582A34854800044CCF /* ViewBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE22B7572A34854800044CCF /* ViewBuilderView.swift */; };
+		AE22B75A2A3486CD00044CCF /* AttributedString+Modfiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE22B7592A3486CD00044CCF /* AttributedString+Modfiers.swift */; };
 		AE3EA0512A344A2000F39920 /* ViewBuilderResearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA0502A344A2000F39920 /* ViewBuilderResearchApp.swift */; };
 		AE3EA0532A344A2000F39920 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA0522A344A2000F39920 /* ContentView.swift */; };
 		AE3EA0552A344A2100F39920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3EA0542A344A2100F39920 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* Begin PBXFileReference section */
 		AE22B7542A345B4900044CCF /* ResultBuilder.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ResultBuilder.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		AE22B7552A345F3700044CCF /* AttributedStringBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilderView.swift; sourceTree = "<group>"; };
+		AE22B7572A34854800044CCF /* ViewBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilderView.swift; sourceTree = "<group>"; };
+		AE22B7592A3486CD00044CCF /* AttributedString+Modfiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+Modfiers.swift"; sourceTree = "<group>"; };
 		AE3EA04D2A344A2000F39920 /* ViewBuilderResearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewBuilderResearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3EA0502A344A2000F39920 /* ViewBuilderResearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilderResearchApp.swift; sourceTree = "<group>"; };
 		AE3EA0522A344A2000F39920 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,7 +61,9 @@
 			children = (
 				AE3EA0502A344A2000F39920 /* ViewBuilderResearchApp.swift */,
 				AE3EA0522A344A2000F39920 /* ContentView.swift */,
+				AE22B7572A34854800044CCF /* ViewBuilderView.swift */,
 				AE22B7552A345F3700044CCF /* AttributedStringBuilderView.swift */,
+				AE22B7592A3486CD00044CCF /* AttributedString+Modfiers.swift */,
 				AE3EA0542A344A2100F39920 /* Assets.xcassets */,
 				AE3EA0562A344A2100F39920 /* Preview Content */,
 			);
@@ -142,7 +148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE22B75A2A3486CD00044CCF /* AttributedString+Modfiers.swift in Sources */,
 				AE3EA0532A344A2000F39920 /* ContentView.swift in Sources */,
+				AE22B7582A34854800044CCF /* ViewBuilderView.swift in Sources */,
 				AE22B7562A345F3700044CCF /* AttributedStringBuilderView.swift in Sources */,
 				AE3EA0512A344A2000F39920 /* ViewBuilderResearchApp.swift in Sources */,
 			);
