@@ -18,7 +18,14 @@ func getStrings() -> String {
 print(getStrings())
 
 
-// MARK: @resultBuilder methods
+// MARK: @resultBuilder
+/*
+ Swift 5.4에서 SE-0289의 ResultBuilder가 도입되었다.
+ 이미 Swift 5.1에서 _functionBuilder 라는 이름으로 구현되었으며, Swift 5.4에서 ResultBuilder라는 이름으로 사용되고 있다.
+ Result Builder Type은 함수의 표현식-문에서 부분 결과를 수집하여 반환 값(return value)로 결합하기 위한 임베디드 DSL(Domain Specific Language) 이다. 즉, 각 함수의 표현식-문의 결과를 모으고 조립하여 전체 결과를 반환한다.
+ Property Wrapper인 @resultBuilder 를 추가하고 build 함수들을 구현하면 된다.
+ */
+
 @resultBuilder
 struct ResultBuilderSample {
     
