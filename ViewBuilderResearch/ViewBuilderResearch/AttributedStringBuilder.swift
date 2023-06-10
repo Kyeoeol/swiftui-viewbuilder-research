@@ -34,4 +34,16 @@ enum AttributedStringBuilder {
     static func buildOptional(_ component: AttributedString?) -> AttributedString {
         component ?? AttributedString("")
     }
+    
+    /// For `if else` and `switch` syntax, you need to implement two methods: `buildEither(first:)` and `buildEither(second:)`
+    
+    /// Called for the branch where the condition is true (left branch)
+    static func buildEither(first component: AttributedString) -> AttributedString {
+        component
+    }
+    
+    /// Called for the branch where the condition is false (right branch)
+    static func buildEither(second component: AttributedString) -> AttributedString {
+        component
+    }
 }
