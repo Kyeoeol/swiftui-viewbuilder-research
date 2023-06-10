@@ -57,4 +57,10 @@ enum AttributedStringBuilder {
             result.append(next)
         }
     }
+    
+    
+    /// If the implementation of buildLimitedAvailability is provided, the builder provides support for API availability checks (such as if #available(..)).
+    static func buildLimitedAvailability(_ component: AttributedString) -> AttributedString {
+        component
+    }
 }
