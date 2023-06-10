@@ -12,8 +12,8 @@ struct AttributedStringBuilderView: View {
     // Simple example 1
     @AttributedStringBuilder
     var txt: AttributedString {
-        AttributedString("Hello,")
-        AttributedString("World!")
+        "Hello,"
+        "World!"
         let _ = print("UPDATED.") /// Declaration statements will not affect the builder's translation.
     }
     // Simple example 2
@@ -40,8 +40,11 @@ struct AttributedStringBuilderView: View {
         }
     }
     let myText = MyText {
-        AttributedString("Hello, ")
+        "Hello, "
+            .color(.red)
         AttributedString("World!")
+            .color(.green)
+            .bold()
     }.content
     
     
@@ -61,6 +64,7 @@ struct AttributedStringBuilderView: View {
         
         // Make Model
         Text(myText)
+            .font(.title)
     }
     
 }
@@ -76,14 +80,24 @@ struct AttributedStringBuilderView_Previews: PreviewProvider {
 
 @resultBuilder
 enum AttributedStringBuilder {
-    // 블록에서 컴포넌트를 사용하지 않는 경우에 해당
+    /// 블록에서 컴포넌트를 사용하지 않는 경우에 해당
     static func buildBlock() -> AttributedString {
         AttributedString("")
     }
-    // 블록에서 n개의 구성 요소(n은 양의 정수)를 사용하는 경우에 해당
+    /// 블록에서 n개의 구성 요소(n은 양의 정수)를 사용하는 경우에 해당
     static func buildBlock(_ components: AttributedString...) -> AttributedString {
         components.reduce(into: AttributedString("")) { result, next in
             result.append(next)
         }
+    }
+    
+    /// Simplified expression
+    static func buildExpression(_ string: String) -> AttributedString {
+        AttributedString(string)
+    }
+    /// Solve issue that unable to mix String and AttributedString in a block.
+    /// Now you can mix and use both(String &AttributedString) in a block.
+    static func buildExpression(_ attributedString: AttributedString) -> AttributedString {
+        attributedString
     }
 }

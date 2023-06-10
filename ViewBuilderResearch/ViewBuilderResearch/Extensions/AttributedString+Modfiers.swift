@@ -9,15 +9,12 @@ import SwiftUI
 
 extension AttributedString {
     
-    // color
     func color(_ color: Color) -> AttributedString {
         then {
             $0.foregroundColor = color
         }
     }
     
-    
-    // font
     func bold() -> AttributedString {
         then {
             if var inlinePresentationIntent = $0.inlinePresentationIntent {
@@ -46,12 +43,15 @@ extension AttributedString {
         }
     }
     
-    
-    // then
+}
+
+
+// MARK: -
+
+extension AttributedString {
     func then(_ perform: (inout Self) -> Void) -> Self {
         var result = self
         perform(&result)
         return result
     }
-    
 }
