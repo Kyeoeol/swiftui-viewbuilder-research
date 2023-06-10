@@ -14,6 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE22B7542A345B4900044CCF /* ResultBuilder.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ResultBuilder.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		AE3EA04D2A344A2000F39920 /* ViewBuilderResearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewBuilderResearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3EA0502A344A2000F39920 /* ViewBuilderResearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilderResearchApp.swift; sourceTree = "<group>"; };
 		AE3EA0522A344A2000F39920 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +36,7 @@
 		AE3EA0442A344A2000F39920 = {
 			isa = PBXGroup;
 			children = (
+				AE22B7542A345B4900044CCF /* ResultBuilder.playground */,
 				AE3EA04F2A344A2000F39920 /* ViewBuilderResearch */,
 				AE3EA04E2A344A2000F39920 /* Products */,
 			);
