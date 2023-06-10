@@ -9,6 +9,7 @@ import SwiftUI
 
 @resultBuilder
 enum AttributedStringBuilder {
+    
     /// 블록에서 컴포넌트를 사용하지 않는 경우에 해당
     static func buildBlock() -> AttributedString {
         AttributedString("")
@@ -20,6 +21,7 @@ enum AttributedStringBuilder {
         }
     }
     
+    
     /// Simplified expression
     static func buildExpression(_ string: String) -> AttributedString {
         AttributedString(string)
@@ -30,20 +32,29 @@ enum AttributedStringBuilder {
         attributedString
     }
     
+    
     /// Add support for if statements without else
     static func buildOptional(_ component: AttributedString?) -> AttributedString {
         component ?? AttributedString("")
     }
     
-    /// For `if else` and `switch` syntax, you need to implement two methods: `buildEither(first:)` and `buildEither(second:)`
     
+    // For `if else` and `switch` syntax,
+    // you need to implement two methods: `buildEither(first:)` and `buildEither(second:)`
     /// Called for the branch where the condition is true (left branch)
     static func buildEither(first component: AttributedString) -> AttributedString {
         component
     }
-    
     /// Called for the branch where the condition is false (right branch)
     static func buildEither(second component: AttributedString) -> AttributedString {
         component
+    }
+    
+    
+    /// In this example, we simply concatenate all the iteration results to generate an AttributedString
+    static func buildArray(_ components: [AttributedString]) -> AttributedString {
+        components.reduce(into: AttributedString("")) { result, next in
+            result.append(next)
+        }
     }
 }
