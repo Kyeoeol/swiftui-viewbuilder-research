@@ -63,4 +63,12 @@ enum AttributedStringBuilder {
     static func buildLimitedAvailability(_ component: AttributedString) -> AttributedString {
         component
     }
+    
+    
+    /// If we provide an implementation of buildFinalResult,
+    ///  the builder will use it to transform the result again at the end of the translation process,
+    ///  and the final result will be the return value of buildFinalResult.
+//    static func buildFinalResult(_ component: AttributedString) -> Text {
+//        Text(component)
+//    }
 }
