@@ -19,4 +19,5 @@ After reading both articles, I hope to eliminate or alleviate your confusion abo
 ***
 
 CC.<br>
-https://itnext.io/viewbuilder-research-part-1-mastering-result-builders-65ac4f8dcf0d
+https://itnext.io/viewbuilder-research-part-1-mastering-result-builders-65ac4f8dcf0d <br>
+https://itnext.io/viewbuilder-research-part-2-creating-a-viewbuilder-imitation-7832ab96506b
