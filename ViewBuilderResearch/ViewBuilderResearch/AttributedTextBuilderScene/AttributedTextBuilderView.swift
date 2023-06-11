@@ -11,8 +11,17 @@ struct AttributedTextBuilderView: View {
     
     @AttributedTextBuilder
     var attributedText: AttributedText {
-        Container {
-            "Hello, "
+//        Container {
+//            "Hello, "
+//                .bold()
+//                .color(.red)
+//
+//            "World!"
+//        }
+//        .italic()
+//        .color(.green)
+        Paragraph {
+            "Hello,"
                 .bold()
                 .color(.red)
             
@@ -20,7 +29,6 @@ struct AttributedTextBuilderView: View {
         }
         .italic()
         .color(.green)
-        
     }
     
     
@@ -29,6 +37,8 @@ struct AttributedTextBuilderView: View {
     var body: some View {
         Text(attributedText.content)
             .font(.title)
+            .lineLimit(5)
+            .background(.gray)
     }
 }
 

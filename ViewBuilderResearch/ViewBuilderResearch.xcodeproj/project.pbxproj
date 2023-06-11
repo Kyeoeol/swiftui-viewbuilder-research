@@ -22,6 +22,7 @@
 		AE22B7722A356AD000044CCF /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE22B7712A356AD000044CCF /* AttributedText.swift */; };
 		AE22B7752A356C6200044CCF /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE22B7742A356C6200044CCF /* Container.swift */; };
 		AE22B7782A356D1800044CCF /* AttributedTextBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE22B7772A356D1800044CCF /* AttributedTextBuilderView.swift */; };
+		AE22B77A2A356F4B00044CCF /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE22B7792A356F4B00044CCF /* Paragraph.swift */; };
 		AE3EA0512A344A2000F39920 /* ViewBuilderResearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA0502A344A2000F39920 /* ViewBuilderResearchApp.swift */; };
 		AE3EA0532A344A2000F39920 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA0522A344A2000F39920 /* ContentView.swift */; };
 		AE3EA0552A344A2100F39920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3EA0542A344A2100F39920 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		AE22B7712A356AD000044CCF /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
 		AE22B7742A356C6200044CCF /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		AE22B7772A356D1800044CCF /* AttributedTextBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedTextBuilderView.swift; sourceTree = "<group>"; };
+		AE22B7792A356F4B00044CCF /* Paragraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paragraph.swift; sourceTree = "<group>"; };
 		AE3EA04D2A344A2000F39920 /* ViewBuilderResearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewBuilderResearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3EA0502A344A2000F39920 /* ViewBuilderResearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilderResearchApp.swift; sourceTree = "<group>"; };
 		AE3EA0522A344A2000F39920 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				AE22B7742A356C6200044CCF /* Container.swift */,
+				AE22B7792A356F4B00044CCF /* Paragraph.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				AE22B7722A356AD000044CCF /* AttributedText.swift in Sources */,
 				AE22B7652A3492DA00044CCF /* BuildEitherView.swift in Sources */,
 				AE22B7582A34854800044CCF /* ViewBuilderView.swift in Sources */,
+				AE22B77A2A356F4B00044CCF /* Paragraph.swift in Sources */,
 				AE22B75F2A348EBA00044CCF /* BuilderTranslationLogicView.swift in Sources */,
 				AE22B76B2A34994F00044CCF /* BuildFinalResultView.swift in Sources */,
 				AE22B75C2A348C7000044CCF /* String+Modifiers.swift in Sources */,

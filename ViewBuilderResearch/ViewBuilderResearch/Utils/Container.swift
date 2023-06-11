@@ -19,7 +19,9 @@ struct Container: AttributedText {
     init(_ attributed: AttributedString) {
         self.content = attributed
     }
-    init(@AttributedTextBuilder _ attributedText: () -> AttributedText) {
+    init(
+        @AttributedTextBuilder _ attributedText: () -> AttributedText
+    ) {
         self.content = attributedText().content
     }
     
