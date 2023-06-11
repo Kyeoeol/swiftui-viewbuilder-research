@@ -7,46 +7,17 @@
 
 import SwiftUI
 
-extension AttributedString {
+extension AttributedString: AttributedText {
     
-    func color(_ color: Color) -> AttributedString {
-        then {
-            $0.foregroundColor = color
-        }
+    var content: AttributedString {
+        self
     }
     
-    func bold() -> AttributedString {
-        then {
-            if var inlinePresentationIntent = $0.inlinePresentationIntent {
-                var container = AttributeContainer()
-                inlinePresentationIntent.insert(.stronglyEmphasized)
-                container.inlinePresentationIntent = inlinePresentationIntent
-                $0.mergeAttributes(container)
-            }
-            else {
-                $0.inlinePresentationIntent = .stronglyEmphasized
-            }
-        }
-    }
-    
-    func italic() -> AttributedString {
-        then {
-            if var inlinePresentationIntent = $0.inlinePresentationIntent {
-                var container = AttributeContainer()
-                inlinePresentationIntent.insert(.emphasized)
-                container.inlinePresentationIntent = inlinePresentationIntent
-                $0.mergeAttributes(container)
-            }
-            else {
-                $0.inlinePresentationIntent = .emphasized
-            }
-        }
+    init(_ attributed: AttributedString) {
+        self = attributed
     }
     
 }
-
-
-// MARK: -
 
 extension AttributedString {
     func then(_ perform: (inout Self) -> Void) -> Self {
@@ -55,3 +26,65 @@ extension AttributedString {
         return result
     }
 }
+
+
+// MARK: -
+
+extension AttributedString {
+    
+    func color(_ color: Color) -> AttributedString {
+        /// Implemented the rule that inner attribute settings take precedence over outer attribute settings.
+        var container = AttributeContainer()
+        container.foregroundColor = color
+        return then {
+            for run in $0.runs {
+                $0[run.range].mergeAttributes(
+                    container,
+                    mergePolicy: .keepCurrent
+                )
+            }
+        }
+    }
+    
+    func bold() -> AttributedString {
+        /// Implemented the rule that inner attribute settings take precedence over outer attribute settings.
+        then {
+            for run in $0.runs {
+                if var inlinePresentationIntent = run.inlinePresentationIntent {
+                    var container = AttributeContainer()
+                    inlinePresentationIntent.insert(.stronglyEmphasized)
+                    container.inlinePresentationIntent = inlinePresentationIntent
+                    $0[run.range].mergeAttributes(
+                        container,
+                        mergePolicy: .keepCurrent
+                    )
+                }
+                else {
+                    $0[run.range].inlinePresentationIntent = .stronglyEmphasized
+                }
+            }
+        }
+    }
+    
+    func italic() -> AttributedString {
+        /// Implemented the rule that inner attribute settings take precedence over outer attribute settings.
+        then {
+            for run in $0.runs {
+                if var inlinePresentationIntent = run.inlinePresentationIntent {
+                    var container = AttributeContainer()
+                    inlinePresentationIntent.insert(.emphasized)
+                    container.inlinePresentationIntent = inlinePresentationIntent
+                    $0[run.range].mergeAttributes(
+                        container,
+                        mergePolicy: .keepCurrent
+                    )
+                }
+                else {
+                    $0[run.range].inlinePresentationIntent = .emphasized
+                }
+            }
+        }
+    }
+    
+}
+

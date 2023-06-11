@@ -11,7 +11,7 @@ struct ViewBuilderView: View {
     
     @State private var name = "a"
     
-    // Failure Tes
+    // Failure Test
     
     /// Builder automatically translates and the block only returns the final synthesized result.
     /// The code can be executed normally.
