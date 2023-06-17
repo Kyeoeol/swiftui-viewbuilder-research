@@ -31,7 +31,7 @@ extension Never: ImitatingView {
 
 
 /// EmptyView is a view that does nothing, it is just an empty view
-public struct EmptyView: ImitatingView {
+public struct ImitatingEmptyView: ImitatingView {
     public typealias Body = Never
     public var body: Never { return fatalError() }
     public init() {}
