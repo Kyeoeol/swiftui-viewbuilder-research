@@ -57,10 +57,10 @@
 		AE6E11412A35733100077BA7 /* ViewBuilderResearch */ = {
 			isa = PBXGroup;
 			children = (
+				AEE9E43C2A3EA1F000E879E3 /* ViewBuilder */,
 				AE6E11422A35733100077BA7 /* ViewBuilderResearchApp.swift */,
 				AE6E11442A35733100077BA7 /* ContentView.swift */,
 				AE6E11502A37559D00077BA7 /* ImitatingView.swift */,
-				AE6E11522A3758D800077BA7 /* ImitatingViewBuilder.swift */,
 				AE6E11462A35733100077BA7 /* Assets.xcassets */,
 				AE6E11482A35733100077BA7 /* Preview Content */,
 			);
@@ -73,6 +73,14 @@
 				AE6E11492A35733100077BA7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AEE9E43C2A3EA1F000E879E3 /* ViewBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				AE6E11522A3758D800077BA7 /* ImitatingViewBuilder.swift */,
+			);
+			path = ViewBuilder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
