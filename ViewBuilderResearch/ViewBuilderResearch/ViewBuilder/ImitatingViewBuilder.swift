@@ -53,3 +53,35 @@ public struct TupleView<T>: ImitatingView {
         self.content = content
     }
 }
+
+
+// MARK: Conditional Content
+/// SwiftUI needs to identify views based on their type and position,
+/// so when processing selection branches, regardless of whether the branch is displayed or not, after the view code is compiled,
+/// the type information of all branches needs to be clearly defined.
+/// SwiftUI uses the _ConditionalContent view type to achieve this.
+public extension ImitatingViewBuilder {
+    
+    struct _ConditionalContent<TrueContent, FalseContent>: ImitatingView {
+        public var body: Never { fatalError() }
+        let storage: Storage
+        /// Use enumeration to lock type information
+        enum Storage {
+            case trueContent(TrueContent)
+            case falseContent(FalseContent)
+        }
+        
+        init(storage: Storage) {
+            self.storage = storage
+        }
+    }
+    
+    static func buildEither<TrueContent, FalseContent>(first component: TrueContent) -> _ConditionalContent<TrueContent, FalseContent> where TrueContent: ImitatingView, FalseContent: ImitatingView {
+        _ConditionalContent(storage: .trueContent(component))
+    }
+    
+    static func buildEither<TrueContent, FalseContent>(second component: FalseContent) -> _ConditionalContent<TrueContent, FalseContent> where TrueContent: ImitatingView, FalseContent: ImitatingView {
+        _ConditionalContent(storage: .falseContent(component))
+    }
+    
+}

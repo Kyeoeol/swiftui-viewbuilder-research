@@ -44,3 +44,29 @@ struct MyContentView4: ImitatingView {
 }
 MyContentView4().body.debug()
 // Print: ImitatingGroup<TupleView<(ImitatingEmptyView, ImitatingText)>>
+
+struct MyContentView5: ImitatingView {
+    
+//    var show: Bool
+    var section: Int
+    
+    var body: some ImitatingView {
+//        if show {
+//            ImitatingEmptyView()
+//        }
+//        else {
+//            ImitatingEmptyView()
+//            ImitatingEmptyView()
+//        }
+        switch section {
+        case 0:
+            ImitatingText("section 0")
+        case 1:
+            ImitatingText("section 1")
+        default:
+            ImitatingText("section ...")
+        }
+    }
+}
+//MyContentView5(show: true).body.debug()
+MyContentView5(section: 2).body.debug()
