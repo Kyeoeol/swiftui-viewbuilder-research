@@ -65,3 +65,29 @@ public struct ImitatingText: ImitatingView {
         self.content = content
     }
 }
+
+// AnyView
+/// Since SwiftUI identifies views through their type and position in the view hierarchy, AnyView will erase (hide) this important information.
+/// Therefore, we should try to avoid using AnyView in SwiftUI as much as possible, unless it’s absolutely necessary.
+protocol TypeErasing {
+    var view: Any { get }
+}
+public struct ImitatingAnyView: ImitatingView {
+    var eraser: TypeErasing
+    public var body: Never { fatalError() }
+    public init<V>(_ content: V) where V: ImitatingView {
+        self.eraser = ViewEraser(content)
+    }
+    var wrappedView: Any {
+        eraser.view
+    }
+    class ViewEraser<V: ImitatingView>: TypeErasing {
+        let originView: V
+        var view: Any {
+            originView
+        }
+        init(_ view: V) {
+            self.originView = view
+        }
+    }
+}

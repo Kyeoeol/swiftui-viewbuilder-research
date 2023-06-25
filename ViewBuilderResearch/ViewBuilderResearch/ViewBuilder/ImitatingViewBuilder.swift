@@ -132,3 +132,17 @@ public extension ImitatingViewBuilder {
 //    }
 //
 //}
+
+
+// MARK: API availability checks
+/// It is used in conjunction with buildOptional or buildEither, and the implementation is called when the API availability check is satisfied.
+/// SwiftUI will fix the types of all views after compilation (regardless of whether the branch is executed),
+/// and MyText is not defined in lower versions of the system.
+/// To solve this problem, we need to convert MyText to a type that is recognizable in lower version systems.
+public extension ImitatingViewBuilder {
+    
+    static func buildLimitedAvailability<Content>(_ content: Content) -> ImitatingAnyView where Content: ImitatingView {
+        ImitatingAnyView(content)
+    }
+    
+}
