@@ -85,3 +85,50 @@ public extension ImitatingViewBuilder {
     }
     
 }
+
+
+// MARK: Build Optional
+/// In the process of replicating ViewBuilder, the only thing I couldn’t achieve the same as SwiftUI was `buildOptional`.
+/// This is because when SwiftUI was born, result builders use `buildIf` to handle `if` statements that do not contain `else`.
+/// Although `buildIf` is still supported, it is no longer possible to return Optional type data like the official ViewBuilder version.
+public extension ImitatingViewBuilder {
+    
+    // Definition of buildIf in SwiftUI's ViewBuilder
+    /// If we define it as `Content?`, the compiler will not pass. We can achieve the same purpose (handling `if` statements that do not contain `else`) by using`_ConditionalContent` in `buildOptional`:
+//    static func buildIf<Content>(_ content: Content?) -> Content? where Content : ImitatingView {
+//    }
+    
+    static func buildOptional<Content>(_ content: Content?) -> _ConditionalContent<Content, ImitatingEmptyView> where Content: ImitatingView{
+        if let content {
+            return _ConditionalContent(storage: .trueContent(content))
+        } else {
+            return _ConditionalContent(storage: .falseContent(ImitatingEmptyView()))
+        }
+    }
+    
+}
+// It also works in SwiftUI`s origin ViewBuilder.
+//public extension ViewBuilder {
+//    struct _ConditionalContent<TrueContent, FalseContent>: View {
+//        public var body: Never { fatalError() }
+//        let storage: Storage
+//        /// Use enumeration to lock type information
+//        enum Storage {
+//            case trueContent(TrueContent)
+//            case falseContent(FalseContent)
+//        }
+//
+//        init(storage: Storage) {
+//            self.storage = storage
+//        }
+//    }
+//
+//    static func buildOptional<Content>(_ content: Content?) -> _ConditionalContent<Content, EmptyView> where Content: View  {
+//        if let content {
+//            return _ConditionalContent(storage: .trueContent(content))
+//        } else {
+//            return _ConditionalContent(storage: .falseContent(EmptyView()))
+//        }
+//    }
+//
+//}
