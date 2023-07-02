@@ -70,3 +70,13 @@ struct MyContentView5: ImitatingView {
 }
 //MyContentView5(show: true).body.debug()
 MyContentView5(section: 2).body.debug()
+
+
+struct OverlayTestView: ImitatingView {
+    var body: some ImitatingView {
+        ImitatingGroup {
+            ImitatingText("Hello,")
+        }
+        .overlay(ImitatingText("World!"))
+    }
+}

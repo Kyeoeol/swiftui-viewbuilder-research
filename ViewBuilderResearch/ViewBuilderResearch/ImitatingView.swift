@@ -22,6 +22,18 @@ public extension ImitatingView {
         return self
     }
 }
+/// Modifier
+public extension ImitatingView {
+    func modifier<T>(_ modifier: T) -> ModifiedContent<Self, T> {
+        ModifiedContent(content: self, modifier: modifier)
+    }
+    func overlay<Overlay>(_ overlay: Overlay) -> some ImitatingView where Overlay: ImitatingView {
+        modifier(_OverlayModifier(overlay: overlay))
+    }
+    func overlay<Overlay>(@ImitatingViewBuilder _ overlay: () -> Overlay) -> some ImitatingView where Overlay: ImitatingView {
+        modifier(_OverlayModifier(overlay: overlay()))
+    }
+}
 
 
 /// When SwiftUI encounters these view types, it does not attempt to access their body property content (Never is untouchable),
