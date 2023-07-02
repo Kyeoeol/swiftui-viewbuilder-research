@@ -73,8 +73,40 @@ public struct ImitatingText: ImitatingView {
     /// In SwiftUI, an enumeration type is used to distinguish between String and LocalizedStringKey,
     /// and the imitation process will be simplified uniformly.
     var content: String
+    var modifiers: [Modifier] = [] // records the modifiers used
     public init(_ content: String) {
         self.content = content
+    }
+}
+public extension ImitatingText {
+    /// SwiftUI lists the modifiers that apply only to the Text view using an enumeration.
+    enum Modifier {
+        case color(Color?)
+        /*
+        case font(Font?)
+        case italic
+        case weight(Font.Weight?)
+        case kerning(CGFloat)
+        case tracking(CGFloat)
+        case baseline(CGFloat)
+        case rounded
+        case anyTextModifier(AnyTextModifier)
+        */
+    }
+    
+    /// There are the following advantages to handling modifiers in this way:
+    /// 1. The information is only passed during transcription, and the modifier is only processed during layout or rendering.
+    /// 2. It is easy to be compatible with different frameworks (UIKit, AppKit).
+    /// 3. The priority logic of modifiers is consistent with SwiftUI’s common modifiers — inner layers have higher priority.
+    func foregroundColor(_ color: Color?) -> ImitatingText {
+        guard !modifiers.contains(where: {
+            if case .color = $0 { return true }
+            else { return false }
+        })
+        else { return self }
+        var text = self
+        text.modifiers.append(.color(color))
+        return text
     }
 }
 
