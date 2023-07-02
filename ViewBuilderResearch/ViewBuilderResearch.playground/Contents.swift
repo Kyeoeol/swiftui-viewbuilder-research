@@ -61,6 +61,7 @@ struct MyContentView5: ImitatingView {
         switch section {
         case 0:
             ImitatingText("section 0")
+                .foregroundColor(.accentColor)
         case 1:
             ImitatingText("section 1")
         default:
